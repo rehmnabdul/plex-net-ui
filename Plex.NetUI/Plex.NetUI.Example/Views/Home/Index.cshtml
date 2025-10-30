@@ -1,4 +1,5 @@
 ﻿@using Plex.NetUI.Components
+@using Plex.NetUI.Components.Navigation
 @using Plex.NetUI.Components.Table
 @{
     ViewData["Title"] = "Home Page";
@@ -7,110 +8,168 @@
 <link href="~/_content/Plex.NetUI/uilibrary.css" rel="stylesheet" />
 
 @{
-    var page = new VStack 
+    var page = new VStack
     {
-        Children = 
+        ClassName = "vstack",
+        Children =
         {
-            new Heading("Welcome to UI Library", 1),
-            new Text("This page demonstrates the UI library components built without HTML, CSS, and JS."),
-            new Divider(),
-            new HStack
+            // Header
+            new Navbar("Plex.NetUI Components Demo")
             {
-                Children = 
+                Children =
                 {
-                    new Card("Card 1")
-                    {
-                        Children = { new Text("This is the first card with some sample content.") }
-                    },
-                    new Card("Card 2")
-                    {
-                        Children = { new Text("This is the second card with more sample content.") }
-                    },
-                    new Card("Card 3")
-                    {
-                        Children = { new Text("This is the third card with additional content.") }
-                    },
-                    new Card
+                    new Navigation
                     {
                         Children =
                         {
-                            new Text("This is the third card with additional content.")
+                            new NavItem("Layout", "#layout"),
+                            new NavItem("Typography", "#typography"),
+                            new NavItem("Cards", "#cards"),
+                            new NavItem("Tables", "#tables"),
+                            new NavItem("Forms", "#forms"),
+                            new NavItem("Media & Links", "#media")
                         }
                     }
                 }
             },
-            new Divider(),
-            new Container()
+
+            new Container { ClassName = "container", Children =
             {
-                Children = 
+                // Intro
+                new VStack { ClassName = "vstack", Children =
                 {
-                    new Heading("Table Component", 2),
-                    new Table()
+                    new Heading("Welcome to Plex.NetUI", 1),
+                    new Text("Browse all built-in components below. This page is composed entirely using C# components and library CSS."),
+                }},
+
+                new Divider(),
+
+                // Layout Section
+                new VStack { ClassName = "vstack", Children =
+                {
+                    new Link(" ", "#") // anchor spacing workaround (no custom CSS)
+                }},
+                new Heading("Layout Components", 2) { },
+                new Text("") { },
+                new HStack
+                {
+                    Children =
                     {
-                        Children = 
+                        new Card("HStack (row)")
                         {
-                            new TableRow()
+                            Children =
                             {
-                                Children = 
+                                new HStack
                                 {
-                                    new TableHeaderCell("Product"),
-                                    new TableHeaderCell("Price"),
-                                    new TableHeaderCell("Category"),
-                                    new TableHeaderCell("Stock")
-                                }
-                            },
-                            new TableRow()
+                                    Children =
+                                    {
+                                        new Button("Button 1", "alert('Clicked 1')"),
+                                        new Button("Button 2", "alert('Clicked 2')"),
+                                        new Button("Button 3", "alert('Clicked 3')")
+                                    }
+                                },
+                                new Divider(),
+                                new Text("Items are arranged horizontally with spacing.")
+                            }
+                        },
+                        new Card("VStack (column)")
+                        {
+                            Children =
                             {
-                                Children = 
+                                new VStack { ClassName = "vstack", Children =
                                 {
-                                    new TableCell("Laptop"),
-                                    new TableCell("$999.99"),
-                                    new TableCell("Electronics"),
-                                    new TableCell("15")
-                                }
-                            },
-                            new TableRow()
-                            {
-                                Children = 
-                                {
-                                    new TableCell("Book"),
-                                    new TableCell("$19.99"),
-                                    new TableCell("Education"),
-                                    new TableCell("50")
-                                }
-                            },
-                            new TableRow()
-                            {
-                                Children = 
-                                {
-                                    new TableCell("Coffee Mug"),
-                                    new TableCell("$12.99"),
-                                    new TableCell("Kitchen"),
-                                    new TableCell("100")
-                                }
+                                    new Text("Item A"),
+                                    new Text("Item B"),
+                                    new Text("Item C")
+                                }},
+                                new Divider(),
+                                new Text("Use ClassName = 'vstack' to enable column layout and gaps.")
                             }
                         }
                     }
-                }
-            },
-            new Divider(),
-            new VStack()
-            {
-                Children = 
+                },
+
+                new Divider(),
+
+                // Typography Section
+                new Heading("Typography", 2) { },
+                new VStack { ClassName = "vstack", Children =
                 {
-                    new Heading("Form Elements", 2),
-                    new Form()
+                    new Heading("Heading Level 1", 1),
+                    new Heading("Heading Level 2", 2),
+                    new Heading("Heading Level 3", 3),
+                    new Text("This is standard text rendered with the Text component."),
+                    new Link("This is a link component", "https://example.com")
+                }},
+
+                new Divider(),
+
+                // Cards Section
+                new Heading("Cards", 2),
+                new HStack
+                {
+                    Children =
                     {
-                        Children = 
+                        new Card("Simple Card")
                         {
-                            new Input("text", "Enter your name"),
-                            new Input("email", "Enter your email"),
-                            new Input("password", "Enter your password"),
-                            new Button("Submit", "alert('Form submitted!')")
+                            Children = { new Text("Cards provide a bordered container with padding and optional title.") }
+                        },
+                        new Card("Card With Actions")
+                        {
+                            Children =
+                            {
+                                new Text("You can place any components inside a card."),
+                                new Divider(),
+                                new HStack { Children = { new Button("Accept", "alert('Accepted')"), new Button("Cancel", "alert('Cancelled')") } }
+                            }
                         }
                     }
+                },
+
+                new Divider(),
+
+                // Tables Section
+                new Heading("Tables", 2),
+                new Table
+                {
+                    Children =
+                    {
+                        new TableRow { Children = { new TableHeaderCell("Product"), new TableHeaderCell("Price"), new TableHeaderCell("Category"), new TableHeaderCell("Stock") }},
+                        new TableRow { Children = { new TableCell("Laptop"), new TableCell("$999.99"), new TableCell("Electronics"), new TableCell("15") }},
+                        new TableRow { Children = { new TableCell("Book"), new TableCell("$19.99"), new TableCell("Education"), new TableCell("50") }},
+                        new TableRow { Children = { new TableCell("Coffee Mug"), new TableCell("$12.99"), new TableCell("Kitchen"), new TableCell("100") }}
+                    }
+                },
+
+                new Divider(),
+
+                // Forms Section
+                new Heading("Forms", 2),
+                new VStack { ClassName = "vstack", Children =
+                {
+                    new Form { Children = { new Input("text", "Enter your name"), new Input("email", "Enter your email"), new Input("password", "Enter your password") } },
+                    new HStack { Children = { new Button("Submit", "alert('Form submitted!')") } }
+                }},
+
+                new Divider(),
+
+                // Media & Links Section
+                new Heading("Media & Links", 2),
+                new HStack
+                {
+                    Children =
+                    {
+                        new Image("https://media.wired.com/photos/5926ffe47034dc5f91bed4e8/3:2/w_2240,c_limit/google-logo.jpg", "Placeholder Image", height: 100, width: 150),
+                        new Text("Use Image to embed pictures. Links are standard anchor tags rendered by Link component."),
+                        new Link("Visit Example", "https://example.com")
+                    }
                 }
-            }
+            }},
+
+            new Divider(),
+
+            // Footer action buttons demo
+            new HStack { Children = { new Button("Primary Action", "alert('Primary')"), new Button("Secondary Action", "alert('Secondary')") } }
         }
     };
 }

@@ -2,13 +2,12 @@ using Plex.NetUI.IComponent;
 
 namespace Plex.NetUI.Components;
 
-public class Image(string src, string alt = "") : UiComponent
+public class Image(string src, string alt = "", int? width = null, int? height = null) : UiComponent
 {
-    public string Src { get; set; } = src;
-    public string Alt { get; set; } = alt;
-
     public override string Render()
     {
-        return $"<img src='{Src}' alt='{Alt}' />";
+        var widthAttr = width.HasValue ? $" width='{width.Value}'" : "";
+        var heightAttr = height.HasValue ? $" height='{height.Value}'" : "";
+        return $"<img src='{src}' alt='{alt}'{widthAttr}{heightAttr} />";
     }
 }

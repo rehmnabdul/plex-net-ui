@@ -5,6 +5,18 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Plex.NetUI</Title>
+        <Authors>Abdur Rahman</Authors>
+        <Description>A UI Library for ASP .NET that will work just like declaritive UI advance libraries. </Description>
+        <PackageProjectUrl>https://github.com/rehmnabdul/plex-net-ui</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/rehmnabdul/plex-net-ui</RepositoryUrl>
+        <RepositoryType>Open Source</RepositoryType>
+        <PackageTags>ui, dotnet</PackageTags>
+        <AssemblyVersion>1.0.1.0</AssemblyVersion>
+        <FileVersion>1.0.1.0</FileVersion>
+        <UserSecretsId>8f569b24-178a-45da-a5c0-b305e7a54de4</UserSecretsId>
+        <Version>1.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
