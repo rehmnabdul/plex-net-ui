@@ -1,0 +1,118 @@
+﻿@using Plex.NetUI.Components
+@using Plex.NetUI.Components.Table
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link href="~/uilibrary.css" rel="stylesheet" />
+
+@{
+    var page = new VStack 
+    {
+        Children = 
+        {
+            new Heading("Welcome to UI Library", 1),
+            new Text("This page demonstrates the UI library components built without HTML, CSS, and JS."),
+            new Divider(),
+            new HStack
+            {
+                Children = 
+                {
+                    new Card("Card 1")
+                    {
+                        Children = { new Text("This is the first card with some sample content.") }
+                    },
+                    new Card("Card 2")
+                    {
+                        Children = { new Text("This is the second card with more sample content.") }
+                    },
+                    new Card("Card 3")
+                    {
+                        Children = { new Text("This is the third card with additional content.") }
+                    },
+                    new Card
+                    {
+                        Children =
+                        {
+                            new Text("This is the third card with additional content.")
+                        }
+                    }
+                }
+            },
+            new Divider(),
+            new Container()
+            {
+                Children = 
+                {
+                    new Heading("Table Component", 2),
+                    new Table()
+                    {
+                        Children = 
+                        {
+                            new TableRow()
+                            {
+                                Children = 
+                                {
+                                    new TableHeaderCell("Product"),
+                                    new TableHeaderCell("Price"),
+                                    new TableHeaderCell("Category"),
+                                    new TableHeaderCell("Stock")
+                                }
+                            },
+                            new TableRow()
+                            {
+                                Children = 
+                                {
+                                    new TableCell("Laptop"),
+                                    new TableCell("$999.99"),
+                                    new TableCell("Electronics"),
+                                    new TableCell("15")
+                                }
+                            },
+                            new TableRow()
+                            {
+                                Children = 
+                                {
+                                    new TableCell("Book"),
+                                    new TableCell("$19.99"),
+                                    new TableCell("Education"),
+                                    new TableCell("50")
+                                }
+                            },
+                            new TableRow()
+                            {
+                                Children = 
+                                {
+                                    new TableCell("Coffee Mug"),
+                                    new TableCell("$12.99"),
+                                    new TableCell("Kitchen"),
+                                    new TableCell("100")
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            new Divider(),
+            new VStack()
+            {
+                Children = 
+                {
+                    new Heading("Form Elements", 2),
+                    new Form()
+                    {
+                        Children = 
+                        {
+                            new Input("text", "Enter your name"),
+                            new Input("email", "Enter your email"),
+                            new Input("password", "Enter your password"),
+                            new Button("Submit", "alert('Form submitted!')")
+                        }
+                    }
+                }
+            }
+        }
+    };
+}
+
+@Html.Raw(page.Render())

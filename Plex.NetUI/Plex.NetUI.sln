@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plex.NetUI", "Plex.NetUI\Plex.NetUI.csproj", "{93FFE070-976F-4AE3-AA7D-85E6667DE7BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plex.NetUI.Example", "Plex.NetUI.Example\Plex.NetUI.Example.csproj", "{16C5257E-D526-4A39-A2DD-26F17912B68F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93FFE070-976F-4AE3-AA7D-85E6667DE7BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93FFE070-976F-4AE3-AA7D-85E6667DE7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93FFE070-976F-4AE3-AA7D-85E6667DE7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93FFE070-976F-4AE3-AA7D-85E6667DE7BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C5257E-D526-4A39-A2DD-26F17912B68F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C5257E-D526-4A39-A2DD-26F17912B68F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C5257E-D526-4A39-A2DD-26F17912B68F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C5257E-D526-4A39-A2DD-26F17912B68F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
